@@ -1,329 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritvik Raikwar - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #E3FDFD, #FFE6FA);
-            color: #333;
-        }
-
-        header {
-            background: #222;
-            color: #fff;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-        }
-
-        section {
-            padding: 100px 2rem 60px;
-        }
-
-        #home {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
-            text-align: center;
-        }
-
-        #home h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        #home p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        #home .highlight {
-            color: #ffd700;
-        }
-
-        #home img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #fff;
-            color: #333;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: #333;
-            color: #fff;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .education, .skills, .projects, .about, .contact {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .education-grid, .project-grid, .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .education-item, .project, .skill {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: 0.3s ease;
-        }
-
-        .project:hover, .skill:hover, .education-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .project a.btn {
-            margin-top: 1rem;
-        }
-
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .contact input, .contact textarea {
-            padding: 0.75rem;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .contact button {
-            padding: 0.75rem;
-            font-size: 1rem;
-            background: #6a11cb;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .contact button:hover {
-            background: #2575fc;
-        }
-
-        footer {
-            background: #222;
-            color: #fff;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        footer a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #fff;
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritvik Raikwar - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif']
+          },
+          animation: {
+            fadeIn: 'fadeIn 1s ease-in forwards',
+            slideIn: 'slideIn 0.8s ease-out forwards'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            },
+            slideIn: {
+              '0%': { transform: 'translateY(30px)', opacity: 0 },
+              '100%': { transform: 'translateY(0)', opacity: 1 }
             }
-
-            #home h1 {
-                font-size: 2rem;
-            }
+          }
         }
-    </style>
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <ul style="margin-top: 20px; font-size: 1rem; text-align: right;" class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="font-poppins bg-gradient-to-br from-blue-50 to-pink-50 text-gray-800">
+  <header class="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-end">
+      <nav>
+        <ul class="flex space-x-6 text-sm font-semibold">
+          <li><a href="#home" class="hover:text-yellow-300">Home</a></li>
+          <li><a href="#education" class="hover:text-yellow-300">Education</a></li>
+          <li><a href="#about" class="hover:text-yellow-300">About</a></li>
+          <li><a href="#skills" class="hover:text-yellow-300">Skills</a></li>
+          <li><a href="#projects" class="hover:text-yellow-300">Projects</a></li>
+          <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section id="home" class="home">
-        <h1>Hello, I'm <span class="highlight">Ritvik Raikwar</span></h1>
-        <p>A Passionate Full-Stack Developer, Building scalable web solutions and crafting seamless user experiences.</p>
-        
-        <img src="ritvik.jpeg" alt="Ritvik Raikwar" style="width: 250px; height: 250px; border-radius: 50%; margin-bottom: 20px;"><br>
-    
-        <a href="#projects" class="btn">View My Work</a>
-    </section>
-    
-    <section id="about" class="about">
-        <br>
-        <h2>About Me</h2>
-        <p>
-            Hi, I'm Ritvik Raikwar, a skilled software developer with expertise in web development, UI/UX design, and problem-solving. 
-            I have a deep passion for technology and enjoy bringing ideas to life through code.
-        </p>
-        <p>
-            When I'm not coding, you can find me exploring new technologies, learning about AI advancements, or reading tech blogs.
-        </p>
-    </section>
-    
+  <section id="home" class="pt-32 pb-20 text-center bg-gradient-to-r from-purple-600 to-blue-600 text-white animate-fadeIn">
+    <h1 class="text-4xl md:text-5xl font-bold">Hello, I'm <span class="text-yellow-300">Ritvik Raikwar</span></h1>
+    <p class="mt-4 text-lg md:text-xl">A Passionate Full-Stack Developer</p>
+    <img src="ritvik.jpeg" alt="Ritvik Raikwar" class="w-48 h-48 rounded-full mx-auto mt-6 shadow-lg border-4 border-white" />
+    <a href="#projects" class="inline-block mt-6 px-6 py-2 bg-white text-gray-900 rounded-md font-semibold hover:bg-gray-800 hover:text-white transition duration-300">View My Work</a>
+  </section>
 
-    <section id="education" class="education">
-        <br>
-        <h2>Education</h2>
-        <div class="education-grid">
-            <div class="education-item">
-                <h3>Bachelor of Technology in Computer Science</h3>
-                <p><strong>University Name:</strong> Acropolis Institute of Technology and Research</p>
-                <p><strong>Year:</strong> 2022 - 2026</p>
-                <p>Graduated with a focus on software development, web technologies, and data structures.</p>
-            </div>
-            <div class="education-item">
-                <h3>High School & Higher Secondary</h3>
-                <p><strong>School Name:</strong> S.G.S. A.M.N. English Medium School</p>
-                <p><strong>Year:</strong> 2020 - 2022</p>
-                <p>Specialized in science with a focus on mathematics and computer science.</p>
-            </div>
+  <section id="about" class="py-20 bg-white animate-slideIn">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p class="text-md md:text-lg">I'm a skilled software developer with expertise in web development, UI/UX design, and problem-solving. Passionate about technology and building innovative solutions.</p>
+    </div>
+  </section>
+
+  <section id="education" class="py-20 bg-blue-50 animate-slideIn">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">Education</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-blue-600">B.Tech in Computer Science</h3>
+          <p class="mt-2 text-sm">Acropolis Institute of Technology and Research (2022 - 2026)</p>
         </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <br>
-        <h2>Skills</h2>
-        <div class="skill-grid">
-            <div class="skill">
-                <h3>Frontend Development</h3>
-                <p>HTML, CSS, JavaScript, React, Bootstrap</p>
-            </div>
-            <div class="skill">
-                <h3>Backend Development</h3>
-                <p>Node.js, Express, MongoDB, MySQL</p>
-            </div>
-            <div class="skill">
-                <h3>Programming Languages</h3>
-                <p>JavaScript, Python, C++</p>
-            </div>
-            <div class="skill">
-                <h3>Other Tools</h3>
-                <p>Git, Postman</p>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-blue-600">High School</h3>
+          <p class="mt-2 text-sm">S.G.S. A.M.N. English Medium School (2020 - 2022)</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project-grid">
-            <div class="project">
-                <h3>Portfolio Website</h3>
-                <p>
-                    A fully responsive personal portfolio built with HTML, CSS, and JavaScript to showcase my projects and skills.
-                </p>
-                <a href="#" class="btn">View Project</a>
-            </div>
-            <div class="project">
-                <h3>True Care Website</h3>
-                <p>
-                    A Mental Health Platform, which provides user and psychologists to interact with each other.
-                </p>
-                <a href="https://true-care-8irq.vercel.app" class="btn">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Weather App</h3>
-                <p>
-                    A weather forecasting app using APIs, providing real-time weather data for any location.
-                </p>
-                <a href="" rel="none" class="btn">View Project</a>
-            </div>
+  <section id="skills" class="py-20 bg-white animate-slideIn">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-10">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-2 text-indigo-600">Frontend</h3>
+          <p>HTML, CSS, JavaScript, React, Bootstrap</p>
         </div>
-    </section>
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-2 text-indigo-600">Backend</h3>
+          <p>Node.js, Express, MongoDB, MySQL</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-2 text-indigo-600">Languages</h3>
+          <p>JavaScript, Python, C++</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-2 text-indigo-600">Tools</h3>
+          <p>Git, Postman</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Have a question or want to collaborate? Feel free to reach out!</p>
-        <form id="contactForm">
-            <input type="text" placeholder="Your Name" id="name" required>
-            <input type="email" placeholder="Your Email" id="email" required>
-            <textarea placeholder="Your Message" id="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+  <section id="projects" class="py-20 bg-blue-50 animate-slideIn">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-10">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="font-bold text-lg">Portfolio Website</h3>
+          <p class="mt-2 text-sm">Responsive portfolio using HTML, CSS, JavaScript.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="font-bold text-lg">True Care</h3>
+          <p class="mt-2 text-sm">Mental Health Platform connecting users with psychologists.</p>
+          <a href="https://true-care-8irq.vercel.app" class="text-blue-600 underline text-sm mt-2 inline-block">Visit</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="font-bold text-lg">Weather App</h3>
+          <p class="mt-2 text-sm">Real-time weather data using APIs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Ritvik Raikwar. All rights reserved.</p>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/ritvik-raikwar-0b3841251?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BLMHvFfzyTY6wR8IWR3Jp4Q%3D%3D" target="_blank">LinkedIn</a> | <a href="https://github.com/raikwarritvik04" target="_blank">GitHub</a></p>
-    </footer>
+  <section id="contact" class="py-20 bg-white animate-slideIn">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
+      <p class="text-sm">Feel free to reach out for collaboration or inquiries.</p>
+      <form class="mt-6 flex flex-col gap-4" id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" class="p-3 border rounded" required />
+        <input type="email" id="email" placeholder="Your Email" class="p-3 border rounded" required />
+        <textarea id="message" placeholder="Your Message" rows="4" class="p-3 border rounded" required></textarea>
+        <button type="submit" class="bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault();
+  <footer class="bg-gray-900 text-white py-6 text-center text-sm">
+    <p>&copy; 2024 Ritvik Raikwar. All rights reserved.</p>
+    <p>
+      <a href="https://www.linkedin.com/in/ritvik-raikwar-0b3841251" class="text-yellow-300 hover:text-white">LinkedIn</a> |
+      <a href="https://github.com/raikwarritvik04" class="text-yellow-300 hover:text-white">GitHub</a>
+    </p>
+  </footer>
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-
-        alert(`Thank you, ${name}! Your message has been received.`);
-        document.getElementById("contactForm").reset();
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      alert(`Thank you, ${name}! Your message has been received.`);
+      this.reset();
     });
-
-    </script>
+  </script>
 </body>
 </html>
